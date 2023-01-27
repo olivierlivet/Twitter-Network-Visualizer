@@ -36,10 +36,10 @@ export const LoadGraph = ({ space }) => {
                 const graph = new Graph();
 
                 res.data.nodes
-                    .forEach(({ id, size, x, y, color, label, attributes }) => graph.addNode(id, { label: label, color: color, size: size / 4, x: x, y: y }))
+                    .forEach(({ id, size, x, y, color, label, attributes }) => graph.addNode(id, { label: label, color: color, size: size / 3, x: x, y: y }))
 
                 res.data.edges
-                    .forEach(({ id, source, target, color, label }) => graph.addEdge(source, target, { color: color, size: 0.1 }))
+                    .forEach(({ id, source, target, color, label, size }) => graph.addEdge(source, target, { color: color, size: size / 5, "type": "arrow" }))
 
 
                 loadGraph(graph);
@@ -135,6 +135,9 @@ export const DisplayGraph = ({ space }) => {
                     defaultNodeColor: `#FF0000`,
                     labelColor: { color: "#FFFFFF" },
 
+                    defaultEdgeType: 'curve',
+                    minEdgeSize: 0,
+                    maxEdgeSize: 10,
 
                     // defaultLabelColor: "#000",
                     // defaultLabelSize: 14,

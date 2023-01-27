@@ -2,6 +2,7 @@ import * as React from 'react'
 // import { DisplayGraph } from './graph';
 import { Routes, Route, Outlet, Link, useParams } from "react-router-dom";
 import { DisplayGraph } from './graph';
+import './index.css'
 
 function Layout() {
   return (
