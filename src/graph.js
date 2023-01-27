@@ -36,7 +36,7 @@ export const LoadGraph = ({ space }) => {
                 const graph = new Graph();
 
                 res.data.nodes
-                    .forEach(({ id, size, x, y, color, label, attributes }) => graph.addNode(id, { label: label, color: getNodeColor(attributes["Modularity Class"]), size: size / 4, x: x, y: y }))
+                    .forEach(({ id, size, x, y, color, label, attributes }) => graph.addNode(id, { label: label, color: color, size: size / 4, x: x, y: y }))
 
                 res.data.edges
                     .forEach(({ id, source, target, color, label }) => graph.addEdge(source, target, { color: color, size: 0.1 }))
@@ -134,6 +134,18 @@ export const DisplayGraph = ({ space }) => {
                 settings={{
                     defaultNodeColor: `#FF0000`,
                     labelColor: { color: "#FFFFFF" },
+
+
+                    // defaultLabelColor: "#000",
+                    // defaultLabelSize: 14,
+                    // defaultLabelBGColor: "#ddd",
+                    // defaultHoverLabelBGColor: "#002147",
+                    defaultLabelHoverColor: "#FF0000",
+                    // labelThreshold: 10,
+                    // defaultEdgeType: "curve",
+                    // hoverFontStyle: "bold",
+                    // fontStyle: "bold",
+                    // activeFontStyle: "bold"
                 }}
             >
                 <LoadGraph space={space} />
