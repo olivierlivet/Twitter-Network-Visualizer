@@ -1,23 +1,15 @@
 import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+// import './App.css';
+import { DisplayGraph } from './graph';
 
 function App() {
+  const [dataSet, setDataSet] = React.useState(1);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => setDataSet(1)}>Dataset 1</button>
+      <button onClick={() => setDataSet(2)}>Dataset 2</button>
+      <DisplayGraph dataSet={dataSet} />
     </div>
   );
 }
